@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <van-tabs
+      @click="onClick"
+      background="#07c160"
+      title-active-color="pink"
+      title-inactive-color="white"
+      font-size="large"
+    >
+      <van-tab title="手机注册">
+        <TelLogin> </TelLogin>
+      </van-tab>
+      <van-tab title="邮箱注册">
+        <EmailLogin></EmailLogin>
+      </van-tab>
+    </van-tabs>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TelLogin from './components/TeleLogin.vue';
+import EmailLogin from './components/EmailLogin.vue';
 
 export default {
-  name: 'App',
+  methods: {
+    onClick(name, title) {
+      console.log(name, title);
+    },
+  },
   components: {
-    HelloWorld
-  }
-}
+    TelLogin,
+    EmailLogin,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="less" scoped></style>
